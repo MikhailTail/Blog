@@ -4,6 +4,7 @@ title: '粤式清蒸鱼：鲜美的最高境界'
 author: 爱吃的小灶
 category: 家常菜
 cover: /images/A_whole_steamed_Chinese_sea_ba_2026-08-25T01-48-14.png
+description: 一条鲜鱼、几丝姜葱、一勺热油，粤菜最考验食材本味和火候的经典做法。
 tags:
   - 粤菜
   - 家常菜

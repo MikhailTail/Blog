@@ -4,6 +4,7 @@ title: '深夜食堂：一碗治愈系热汤面'
 author: 爱吃的小灶
 category: 家常菜
 cover: /images/A_comforting_bowl_of_Chinese_n_2026-08-25T01-48-39.png
+description: 十分钟就能端出一碗暖心暖胃的治愈系面条，厨房里有什么就放什么。
 tags:
   - 面食
   - 快手菜

@@ -84,9 +84,12 @@ function transformPosts(raw, config = {}) {
   const dateConfig = getDateConfig(config);
 
   return raw
-    .map(({ url, frontmatter, excerpt }) => ({
+    .map(({ url, frontmatter, excerpt }) => {
+      const cleanExcerpt = normalizeText(frontmatter?.description)
+        ?? (typeof excerpt === 'string' ? excerpt.replace(/<[^>]+>/g, '').trim() : null);
+      return {
       url,
-      excerpt,
+      excerpt: cleanExcerpt,
       title: normalizeText(frontmatter?.title) ?? deriveTitleFromUrl(url),
       author: normalizeText(frontmatter?.author) ?? config?.defaultAuthor ?? 'Unknown',
       tags: formatTags(frontmatter?.tags),

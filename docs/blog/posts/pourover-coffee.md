@@ -4,6 +4,7 @@ title: '手冲咖啡入门：从第一滴开始的风味之旅'
 author: 爱吃的小灶
 category: 饮品
 cover: /images/Pour_over_coffee_brewing_proce_2026-08-25T01-48-12.png
+description: 从装备到参数到手法，带你从零开始，冲出一杯干净、有层次的好咖啡。
 tags:
   - 咖啡
   - 饮品

@@ -4,6 +4,7 @@ title: '探店：藏在巷子里的三十年老面馆'
 author: 爱吃的小灶
 category: 探店
 cover: /images/Interior_of_an_old_traditional_2026-08-25T01-48-41.png
+description: 没有招牌、没有菜单，凭着一碗臊子面养活了附近三代人的巷子深处老面馆。
 tags:
   - 街头小吃
   - 面食

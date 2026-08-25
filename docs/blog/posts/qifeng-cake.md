@@ -4,6 +4,7 @@ title: '零失败戚风蛋糕：新手烘焙第一课'
 author: 爱吃的小灶
 category: 烘焙
 cover: /images/A_fluffy_chiffon_cake_on_a_whi_2026-08-25T01-48-08.png
+description: 掌握蛋白打发和翻拌两个关键点，你也能做出蓬松柔软、不塌不裂的完美戚风。
 tags:
   - 烘焙
   - 甜点

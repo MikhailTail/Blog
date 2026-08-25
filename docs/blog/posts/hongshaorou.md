@@ -4,6 +4,7 @@ title: '红烧肉：肥而不腻的家常秘诀'
 author: 爱吃的小灶
 category: 家常菜
 cover: /images/A_plate_of_glistening_Chinese__2026-08-25T01-48-08.png
+description: 一块好的红烧肉，应该色泽红亮、肥而不腻、入口即化。今天分享我家的做法。
 tags:
   - 中餐
   - 家常菜
