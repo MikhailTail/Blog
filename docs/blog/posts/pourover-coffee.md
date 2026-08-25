@@ -3,6 +3,7 @@ date: 2026-08-10
 title: '手冲咖啡入门：从第一滴开始的风味之旅'
 author: 爱吃的小灶
 category: 饮品
+cover: /images/Pour_over_coffee_brewing_proce_2026-08-25T01-48-12.png
 tags:
   - 咖啡
   - 饮品

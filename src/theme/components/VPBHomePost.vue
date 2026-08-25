@@ -13,6 +13,9 @@ defineProps({
 
 <template>
   <article class="vpb-card flex h-full flex-col rounded-[1.5rem] p-5 sm:p-7">
+    <div v-if="post.cover" class="mb-5 overflow-hidden rounded-2xl sm:mb-6">
+      <img :src="withBase(post.cover)" :alt="post.title" class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105" />
+    </div>
     <div class="vpb-meta mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
       <div class="flex flex-col items-start gap-2">
         <span class="vpb-pill rounded-full px-3 py-1.5">

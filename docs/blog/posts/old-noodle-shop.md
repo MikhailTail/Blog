@@ -3,6 +3,7 @@ date: 2026-07-28
 title: '探店：藏在巷子里的三十年老面馆'
 author: 爱吃的小灶
 category: 探店
+cover: /images/Interior_of_an_old_traditional_2026-08-25T01-48-41.png
 tags:
   - 街头小吃
   - 面食

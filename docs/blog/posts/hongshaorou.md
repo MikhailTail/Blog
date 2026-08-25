@@ -3,6 +3,7 @@ date: 2026-08-20
 title: '红烧肉：肥而不腻的家常秘诀'
 author: 爱吃的小灶
 category: 家常菜
+cover: /images/A_plate_of_glistening_Chinese__2026-08-25T01-48-08.png
 tags:
   - 中餐
   - 家常菜

@@ -3,6 +3,7 @@ date: 2026-07-20
 title: '粤式清蒸鱼：鲜美的最高境界'
 author: 爱吃的小灶
 category: 家常菜
+cover: /images/A_whole_steamed_Chinese_sea_ba_2026-08-25T01-48-14.png
 tags:
   - 粤菜
   - 家常菜

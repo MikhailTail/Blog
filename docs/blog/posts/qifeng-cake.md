@@ -3,6 +3,7 @@ date: 2026-08-15
 title: '零失败戚风蛋糕：新手烘焙第一课'
 author: 爱吃的小灶
 category: 烘焙
+cover: /images/A_fluffy_chiffon_cake_on_a_whi_2026-08-25T01-48-08.png
 tags:
   - 烘焙
   - 甜点

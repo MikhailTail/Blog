@@ -94,6 +94,7 @@ function transformPosts(raw, config = {}) {
       date: formatDate(frontmatter?.date, dateConfig, url),
       top: frontmatter?.top ?? false,
       sticky: Number(frontmatter?.sticky ?? 0),
+      cover: normalizeText(frontmatter?.cover),
     }))
     .sort((a, b) => {
       if (a.top && b.top) return b.sticky - a.sticky;

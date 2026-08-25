@@ -3,6 +3,7 @@ date: 2026-08-05
 title: '深夜食堂：一碗治愈系热汤面'
 author: 爱吃的小灶
 category: 家常菜
+cover: /images/A_comforting_bowl_of_Chinese_n_2026-08-25T01-48-39.png
 tags:
   - 面食
   - 快手菜
