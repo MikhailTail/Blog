@@ -11,7 +11,7 @@ const { theme } = useData();
   <section class="vpb-shell mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-10 lg:py-16">
     <div class="vpb-page rounded-[2rem] px-6 py-10 sm:px-10 lg:px-16 lg:py-16">
       <div class="vpb-page-header mx-auto max-w-3xl text-center">
-        <p class="vpb-kicker">Journal</p>
+        <p class="vpb-kicker">文章</p>
         <h2 class="vpb-display-title">
           {{ theme.blog?.title }}
         </h2>

@@ -26,9 +26,9 @@ if (inBrowser) {
     <section class="vpb-shell mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-10 lg:py-16">
       <div class="vpb-page rounded-[2rem] px-5 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-14">
         <div class="vpb-page-header mx-auto max-w-3xl text-center">
-          <p class="vpb-kicker">Index</p>
+          <p class="vpb-kicker">标签索引</p>
           <h2 class="vpb-display-title">
-            {{ theme.blog?.title }} Tags
+            {{ theme.blog?.title }} 标签
           </h2>
           <p class="vpb-lead">
             {{ theme.blog?.description }}
@@ -63,12 +63,12 @@ if (inBrowser) {
         >
           <div class="vpb-results-head mb-7 sm:mb-9 sm:grid-cols-[minmax(0,1fr)_auto]">
             <div class="vpb-results-summary">
-              <p class="vpb-results-kicker">Selected tag</p>
+              <p class="vpb-results-kicker">已选标签</p>
               <h3 class="vpb-results-title">
                 {{ selectedTag }}
               </h3>
               <p class="vpb-results-copy">
-                Posts grouped under this topic, ordered like a clean archive index for quick scanning.
+                按此标签分组的文章，按时间排序，方便快速浏览。
               </p>
             </div>
             <div class="flex flex-col items-start gap-3 sm:items-end">
@@ -77,7 +77,7 @@ if (inBrowser) {
                 {{ selectedTag }}
               </span>
               <span class="vpb-results-stat">
-                {{ postsByTag[selectedTag].length }} posts
+                {{ postsByTag[selectedTag].length }} 篇文章
               </span>
             </div>
           </div>
@@ -100,12 +100,12 @@ if (inBrowser) {
           v-else
           class="vpb-soft-panel mx-auto mt-8 max-w-2xl rounded-[1.75rem] px-5 py-8 text-center sm:mt-10 sm:px-6 sm:py-10"
         >
-          <p class="vpb-kicker">Browse</p>
+          <p class="vpb-kicker">浏览</p>
           <p class="mt-4 font-[Iowan_Old_Style,Palatino,'Palatino_Linotype','Book_Antiqua',Georgia,serif] text-2xl leading-tight text-[color:var(--vpb-text-strong)]">
-            Pick a tag to open a curated slice of the archive.
+            选择一个标签，浏览该主题下的精选内容。
           </p>
           <p class="mt-4 text-sm leading-7 text-[color:var(--vpb-text-soft)]">
-            The tag list behaves more like an index panel, making it easier to scan topics instead of browsing a loose cloud of buttons.
+            标签列表采用索引面板形式，比散乱的按钮云更易于浏览和筛选主题。
           </p>
         </section>
       </div>

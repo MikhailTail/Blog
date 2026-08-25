@@ -47,9 +47,9 @@ function clearSearch() {
   <section class="vpb-shell mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-10 lg:py-16">
       <div class="vpb-page rounded-[2rem] px-5 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-14">
       <div class="vpb-page-header mx-auto max-w-3xl text-center">
-        <p class="vpb-kicker">Archive</p>
+        <p class="vpb-kicker">归档</p>
         <h2 class="vpb-display-title">
-          {{ theme.blog?.title }} Archives
+          {{ theme.blog?.title }} 归档
         </h2>
         <p class="vpb-lead">
           {{ theme.blog?.description }}
@@ -57,7 +57,7 @@ function clearSearch() {
       </div>
 
       <div class="vpb-search mx-auto mb-10 max-w-2xl">
-        <label class="sr-only" for="vpb-archive-search">Search archives</label>
+        <label class="sr-only" for="vpb-archive-search">搜索归档</label>
         <span class="i-[carbon--search] vpb-search__icon" aria-hidden="true"></span>
         <input
           id="vpb-archive-search"
@@ -65,13 +65,13 @@ function clearSearch() {
           class="vpb-search__input"
           type="search"
           autocomplete="off"
-          placeholder="Search archives"
+          placeholder="搜索归档"
         />
         <button
           v-if="searchQuery"
           type="button"
           class="vpb-search__clear"
-          aria-label="Clear search"
+          aria-label="清除搜索"
           @click="clearSearch"
         >
           <span class="i-[carbon--close]" aria-hidden="true"></span>
@@ -107,16 +107,16 @@ function clearSearch() {
             v-if="!visiblePostsByYear.length"
             class="vpb-soft-panel rounded-[1.5rem] px-5 py-10 text-center sm:px-7"
           >
-            <p class="vpb-kicker justify-center">No Results</p>
+            <p class="vpb-kicker justify-center">无结果</p>
             <p class="mt-4 font-[Iowan_Old_Style,Palatino,'Palatino_Linotype','Book_Antiqua',Georgia,serif] text-2xl leading-tight text-[color:var(--vpb-text-strong)]">
-              Nothing matched "{{ searchQuery }}".
+              未找到与"{{ searchQuery }}"匹配的内容。
             </p>
           </section>
         </div>
         <aside class="vpb-soft-panel rounded-[1.5rem] p-5 sm:p-6">
-          <p class="vpb-kicker">Timeline</p>
+          <p class="vpb-kicker">时间线</p>
           <p class="mt-4 font-[Iowan_Old_Style,Palatino,'Palatino_Linotype','Book_Antiqua',Georgia,serif] text-2xl leading-tight text-[color:var(--vpb-text-strong)]">
-            {{ filteredPosts.length }} of {{ totalPostCount }} notes.
+            共 {{ totalPostCount }} 篇，当前显示 {{ filteredPosts.length }} 篇。
           </p>
           <p class="mt-4 text-sm leading-7 text-[color:var(--vpb-text-soft)]">
             快速按时间回看内容，适合做知识回溯，也让归档页本身更像一本可翻阅的目录。
@@ -127,7 +127,7 @@ function clearSearch() {
             class="vpb-accent-link mt-5"
             @click="clearSearch"
           >
-            Clear search
+            清除搜索
             <span class="i-[carbon--close] ml-1"></span>
           </button>
         </aside>
