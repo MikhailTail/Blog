@@ -8,3 +8,6 @@ node_modules
 /docs/.vitepress/.temp
 .codex
 .baoyu-skills
+
+# VitePress data loader temp files
+src/theme/composables/*.timestamp-*.mjs
