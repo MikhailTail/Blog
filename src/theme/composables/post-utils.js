@@ -98,7 +98,8 @@ function transformPosts(raw, config = {}) {
       top: frontmatter?.top ?? false,
       sticky: Number(frontmatter?.sticky ?? 0),
       cover: normalizeText(frontmatter?.cover),
-    }))
+      };
+    })
     .sort((a, b) => {
       if (a.top && b.top) return b.sticky - a.sticky;
       if (a.top) return -1;

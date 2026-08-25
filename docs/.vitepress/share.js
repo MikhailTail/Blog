@@ -8,6 +8,19 @@ export const shareConfig = defineConfig({
     cleanUrls: true,
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
+        nav: [
+            { text: '首页', link: '/' },
+            {
+                text: '博客',
+                activeMatch: '/blog/',
+                items: [
+                    { text: '文章', link: '/blog/', activeMatch: '/blog/$' },
+                    { text: '标签', link: '/blog/tags', activeMatch: '/blog/tags' },
+                    { text: '归档', link: '/blog/archives', activeMatch: '/blog/archives' },
+                ],
+            },
+        ],
+
         blog: {
             title: '食光记 · 美食博客',
             description: '记录家常菜谱、烘焙甜点与探店体验，把每一餐都变成值得分享的故事。',
