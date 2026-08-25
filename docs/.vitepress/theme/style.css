@@ -1,0 +1,141 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-c-brand: #e2725b;
+  --vp-c-brand-light: #f08a75;
+  --vp-c-brand-lighter: #f5b0a0;
+  --vp-c-brand-lightest: #fcd5cc;
+  --vp-c-brand-dark: #c85d47;
+  --vp-c-brand-darker: #a84a36;
+  --vp-c-brand-dimm: rgba(226, 114, 91, 0.08);
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: var(--vp-c-brand-light);
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-border: var(--vp-c-brand-light);
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #e2725b 30%,
+    #f5a623
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #e2725b 50%,
+    #f5a623 50%
+  );
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+.dark {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand) !important;
+}
+
+/**
+ * Food Blog Custom Styles
+ * -------------------------------------------------------------------------- */
+
+/* Article content typography */
+.vp-doc p {
+  line-height: 1.8;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc h2 {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+/* Tags and categories styling */
+.VPBTag {
+  transition: all 0.2s ease;
+}
+
+.VPBTag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(226, 114, 91, 0.2);
+}
+
+/* Post cards hover effect */
+.VPBPostCard {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPBPostCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Archive timeline accent */
+.VPBArchives .timeline-item::before {
+  background-color: var(--vp-c-brand);
+}
+
+/* Author card styling */
+.VPBAuthorCard .avatar {
+  border: 3px solid var(--vp-c-brand-lightest);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

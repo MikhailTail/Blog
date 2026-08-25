@@ -1,0 +1,182 @@
+import { intro, outro, text, select, confirm, cancel, group } from '@clack/prompts';
+import pc from 'picocolors';
+import { generateTemplate } from './template.js';
+
+function validateProjectRoot(value) {
+  const target = value?.trim();
+
+  if (!target) return 'Please enter a target directory.';
+  if (target === '.' || target === './') return 'Please choose a directory, for example ./docs.';
+  if (target.startsWith('/') || /^[A-Za-z]:/.test(target)) return 'Please choose a relative directory inside the current project.';
+  if (target.includes('..')) return 'Please choose a directory inside the current project.';
+}
+
+export async function init() {
+  intro(pc.inverse(' VitePress Blog Theme Init '));
+
+  const answers = await group(
+    {
+      vitePressProjectRoot: () =>
+        text({
+          message: 'Where should VitePress initialize the config?',
+          placeholder: './docs',
+          initialValue: './docs',
+          validate: validateProjectRoot,
+        }),
+      siteTitle: () =>
+        text({
+          message: 'Site title:',
+          placeholder: 'My Awesome Blog',
+          initialValue: 'My Awesome Blog',
+          validate: (value) => {
+            if (!value?.trim()) return 'Please enter a site title.';
+          },
+        }),
+      siteDescription: () =>
+        text({
+          message: 'Site description:',
+          placeholder: 'A VitePress Blog with Theme',
+          initialValue: 'A VitePress Blog with Theme',
+          validate: (value) => {
+            if (!value?.trim()) return 'Please enter a site description.';
+          },
+        }),
+      siteUrl: () =>
+        text({
+          message: 'Site base URL:',
+          placeholder: '/',
+          initialValue: '/',
+          validate: (value) => {
+            if (!value?.trim()) return 'Please enter a base URL.';
+            if (!value.startsWith('/')) return 'The base URL should start with "/".';
+            if (value.startsWith('//')) return 'The base URL should not start with "//".';
+          },
+        }),
+      language: () =>
+        select({
+          message: 'Choose site language:',
+          options: [
+            { value: 'zh-CN', label: '简体中文 (zh-CN)' },
+            { value: 'en-US', label: 'English (en-US)' },
+          ],
+          initialValue: 'zh-CN',
+        }),
+      starterTemplate: () =>
+        select({
+          message: 'Choose starter template:',
+          options: [
+            { value: 'minimal', label: 'minimal - core blog structure only' },
+            { value: 'demo', label: 'demo - include example pages and posts' },
+          ],
+          initialValue: 'minimal',
+        }),
+      defaultAuthor: () =>
+        text({
+          message: 'Default author name:',
+          placeholder: 'Blog Author',
+          initialValue: 'Blog Author',
+          validate: (value) => {
+            if (!value?.trim()) return 'Please enter a default author name.';
+          },
+        }),
+      enableGiscus: () =>
+        confirm({
+          message: 'Enable Giscus comments?',
+          initialValue: false,
+        }),
+      giscusRepo: ({ results }) => {
+        if (!results.enableGiscus) return;
+        return text({
+          message: 'GitHub repository (format: owner/repo):',
+          placeholder: 'owner/repo',
+          validate: (value) => {
+            if (!value?.trim()) return 'Please enter a repository.';
+            if (!/^[\w.-]+\/[\w.-]+$/.test(value.trim())) return 'Please use the owner/repo format.';
+          },
+        });
+      },
+      giscusRepoId: ({ results }) => {
+        if (!results.enableGiscus) return;
+        return text({
+          message: 'Giscus Repository ID:',
+          validate: (value) => {
+            if (!value?.trim()) return 'Please enter a repository ID.';
+          },
+        });
+      },
+      giscusCategoryId: ({ results }) => {
+        if (!results.enableGiscus) return;
+        return text({
+          message: 'Giscus Category ID:',
+          validate: (value) => {
+            if (!value?.trim()) return 'Please enter a category ID.';
+          },
+        });
+      },
+      addScripts: () =>
+        select({
+          message: 'Add VitePress npm scripts to package.json?',
+          options: [
+            { value: true, label: 'yes' },
+            { value: false, label: 'no' },
+          ],
+          initialValue: true,
+        }),
+      updateGitignore: () =>
+        confirm({
+          message: 'Add VitePress output entries to .gitignore?',
+          initialValue: true,
+        }),
+      overwriteExisting: () =>
+        confirm({
+          message: 'Overwrite generated files if they already exist?',
+          initialValue: false,
+        }),
+      dateFormat: () =>
+        select({
+          message: 'Date format:',
+          options: [
+            { value: 'yyyy/MM/dd', label: 'yyyy/MM/dd (e.g., 2024/01/26)' },
+            { value: 'MM/dd/yyyy', label: 'MM/dd/yyyy (e.g., 01/26/2024)' },
+            { value: 'dd/MM/yyyy', label: 'dd/MM/yyyy (e.g., 26/01/2024)' },
+          ],
+          initialValue: 'yyyy/MM/dd',
+        }),
+    },
+    {
+      onCancel: () => {
+        cancel('Operation cancelled.');
+        process.exit(0);
+      },
+    }
+  );
+
+  // Post-process answers
+  const finalAnswers = {
+    ...answers,
+    vitePressProjectRoot: answers.vitePressProjectRoot.trim(),
+    siteTitle: answers.siteTitle.trim(),
+    siteDescription: answers.siteDescription.trim(),
+    siteUrl: answers.siteUrl.trim(),
+    defaultAuthor: answers.defaultAuthor.trim(),
+    dateLocale: answers.language === 'en-US' ? 'enUS' : 'zh-CN',
+    giscusRepo: answers.giscusRepo?.trim() || '',
+    giscusRepoId: answers.giscusRepoId?.trim() || '',
+    giscusCategoryId: answers.giscusCategoryId?.trim() || '',
+  };
+
+  let result;
+
+  try {
+    result = await generateTemplate(finalAnswers);
+  } catch (error) {
+    cancel(error.message);
+    process.exit(1);
+  }
+
+  const devScript = result?.scripts?.dev ?? 'docs:dev';
+
+  outro(
+    `Done! Next steps:\n\n  ${pc.green('pnpm install')}\n  ${pc.green(`pnpm run ${devScript}`)}\n\nBlog files were generated in ${pc.green(finalAnswers.vitePressProjectRoot)}.`
+  );
+}

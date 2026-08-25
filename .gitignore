@@ -1,0 +1,10 @@
+
+node_modules
+.idea
+.DS_Store
+**/.thumbnails/
+/docs/.vitepress/cache
+/docs/.vitepress/dist/
+/docs/.vitepress/.temp
+.codex
+.baoyu-skills
