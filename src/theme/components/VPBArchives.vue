@@ -3,6 +3,7 @@ import { useData, withBase } from 'vitepress';
 import { computed, ref } from 'vue';
 import { groupPostsByYear } from '../composables/archive-utils';
 import { useArchives } from '../composables/useArchives';
+import { stripHtml } from '../composables/post-utils';
 
 const { postsByYear } = useArchives();
 const { theme } = useData();
@@ -33,10 +34,6 @@ const filteredPosts = computed(() => {
 });
 const visiblePostsByYear = computed(() => groupPostsByYear(filteredPosts.value));
 const totalPostCount = computed(() => allPosts.value.length);
-
-function stripHtml(raw) {
-  return typeof raw === 'string' ? raw.replace(/<[^>]*>/g, ' ') : '';
-}
 
 function clearSearch() {
   searchQuery.value = '';

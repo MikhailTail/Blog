@@ -22,6 +22,26 @@ function normalizeText(raw) {
   return typeof raw === 'string' && raw.trim() ? raw.trim() : null;
 }
 
+/**
+ * Strip HTML tags and decode common entities from a rendered excerpt.
+ * Single source of truth shared by post-utils and archive search so that
+ * list cards and the archive page show identical, readable summaries.
+ */
+function stripHtml(raw) {
+  if (typeof raw !== 'string' || !raw) return '';
+
+  return raw
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function formatTags(raw) {
   if (typeof raw === 'string') {
     return raw
@@ -86,7 +106,7 @@ function transformPosts(raw, config = {}) {
   return raw
     .map(({ url, frontmatter, excerpt }) => {
       const cleanExcerpt = normalizeText(frontmatter?.description)
-        ?? (typeof excerpt === 'string' ? excerpt.replace(/<[^>]+>/g, '').trim() : null);
+        ?? (typeof excerpt === 'string' ? stripHtml(excerpt) : null);
       return {
       url,
       excerpt: cleanExcerpt,
@@ -119,6 +139,7 @@ export {
   formatTags,
   getDateConfig,
   normalizeText,
+  stripHtml,
   transformPosts,
   warnContentIssue,
 };
