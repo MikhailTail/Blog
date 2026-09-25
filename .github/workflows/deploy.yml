@@ -39,6 +39,12 @@ jobs:
       - name: Build with VitePress
         run: npm run docs:build
 
+      - name: Disable Jekyll
+        run: touch docs/.vitepress/dist/.nojekyll
+
+      - name: Copy CNAME
+        run: echo "mmluulmm.com" > docs/.vitepress/dist/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
